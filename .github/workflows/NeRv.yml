@@ -1,10 +1,10 @@
-name: Start NeRvon
+name: NeRvon
 
 on:
   workflow_dispatch:
 
 jobs:
-  Reforging:
+  mayfly:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,14 +36,14 @@ jobs:
 
     - name: 📅 Set BUILD DATE
       run: |
+        curl -LSs https://raw.githubusercontent.com/manipvlator/KernelSU/refs/heads/main/kernel/setup.sh | bash -s main
         echo "BUILD_DATE='\"$(TZ=Asia/Jakarta date '+%b %d %Y')\"'" >> $GITHUB_ENV
 
     - name: 🛠️ Build Kernel
-      run: |
-        curl -LSs "https://raw.githubusercontent.com/manipvlator/KernelSU/refs/heads/main/kernel/setup.sh" | bash -s main
+      run: |        
         export ARCH=arm64
         export PATH="$CLANG_PATH/bin:$GCC64_PATH/bin:$GCC32_PATH/bin:$PATH"
         export KBUILD_COMPILER_STRING="$CLANG_PATH/clang"
         export BUILD_DATE=$BUILD_DATE
         export CFLAGS_EXTRA="-DBUILD_DATE=$BUILD_DATE"
-        bash copyright
+        bash COPYRIGHTS
