@@ -15,10 +15,10 @@ KERNEL_DIR="$(pwd)"
 # If they are not set, the script will abort.
 
 if [ -z "$TG_TOKEN" ]; then
-    TG_TOKEN="${GITHUB_TG_TOKEN:-}"  # fallback to GitHub secret env var
+    TG_TOKEN="${TG_TOKEN:-}"  # fallback to GitHub secret env var
 fi
 if [ -z "$TG_CHAT_ID" ]; then
-    TG_CHAT_ID="${GITHUB_TG_CHAT_ID:-}"  # fallback to GitHub secret env var
+    TG_CHAT_ID="${TG_CHAT_ID:-}"  # fallback to GitHub secret env var
 fi
 
 if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT_ID" ]; then
