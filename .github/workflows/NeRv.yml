@@ -7,6 +7,12 @@ jobs:
   mayfly:
     runs-on: ubuntu-latest
 
+    env:
+      TG_TOKEN: ${{ secrets.TG_TOKEN }}
+      TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+      GITHUB_TG_TOKEN: ${{ secrets.TG_TOKEN }}
+      GITHUB_TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+
     steps:
     - name: 🔄 Checkout Code
       uses: actions/checkout@v5
