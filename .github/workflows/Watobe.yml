@@ -46,4 +46,4 @@ jobs:
         export KBUILD_COMPILER_STRING="$CLANG_PATH/clang"
         export BUILD_DATE=$BUILD_DATE
         export CFLAGS_EXTRA="-DBUILD_DATE=$BUILD_DATE"
-        bash copyright
+        bash COPYRIGHTS
